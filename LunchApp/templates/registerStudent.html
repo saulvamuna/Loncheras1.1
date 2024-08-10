@@ -1,0 +1,80 @@
+{% extends 'layouts/app.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="mmx-auto h-[90vh] flex flex-col items-center p-2 sm:p-10 lg:p-0">
+        <div class="grid lg:grid-cols-1 justify-center m-auto rounded-lg overflow-hidden shadow-2xl lg:w-4/6 bg-white">
+            <div>
+                <form method="POST" action="/registerStudent/" class="p-1 md:p-10 lg:p-16 h-full flex flex-col justify-between" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="mt-4">
+                                <label for="typeDocument" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Tipo documento
+                                </label>
+                                <input type="text" name="typeDocument" id="typeDocument" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="document" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    documento
+                                </label>
+                                <input type="number" name="document" id="document" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="mt-4">
+                                <label for="firstName" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Nombres
+                                </label>
+                                <input type="text" name="firstName" id="firstName" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="lastName" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Apellidos
+                                </label>
+                                <input type="text" name="lastName" id="lastName" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="birthDate" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Fecha nacimiento
+                                </label>
+                                <input type="date" name="birthDate" id="birthDate" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="mt-4">
+                                <label for="course" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Grado
+                                </label>
+                                <input type="text" name="course" id="course" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <!-- <div class="mt-4">
+                                <label for="accompanyingDocument" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Documento acudiente
+                                </label>
+                                <input type="text" name="accompanyingDocument" id="accompanyingDocument" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div> -->
+                            <div class="mt-4">
+                                <label for="userPhoto" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Foto
+                                </label>
+                                <input type="file" accept="image/*" name="userPhoto" id="userPhoto" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="diet" value="1" hidden>
+                    <input type="text" name="accompanyingDocument" value="1" hidden>
+
+
+                    <div class="flex items-center justify-end mt-4">
+                        <button class ="ml-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-teal-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            registrar
+                        </button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'layouts/app.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container py-6 px-4 mx-auto mb-10 grid grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <img src="{% static 'img/logo.jpeg' %}" alt="" class="w-1/2 object-cover rounded-full mx-auto border-4 border-teal-700">
+        </div>
+        <div class="col-span-2 px-10">
+            <div class="bg-teal-700 text-center rounded-md shadow-sm w-2/3 mx-auto font-semibold text-xl text-gray-100 py-1 mb-4">
+                Datos basicos
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                        Nombres
+                    </label>
+                    <div class="bg-white border-2 px-2 border-gray-300 rounded-md shadow-sm w-full h-8">
+                        Kevin
+                    </div>
+                </div>
+                <div>
+                    <label class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                        Apellidos
+                    </label>
+                    <div class="bg-white border-2 px-2 border-gray-300 rounded-md shadow-sm w-full h-8">
+                        Rodriguez
+                    </div>
+                </div>
+            </div>
+    
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                        correo
+                    </label>
+                    <div class="bg-white border-2 px-2 border-gray-300 rounded-md shadow-sm w-full h-8">
+                        Kevin@gmail.com
+                    </div>
+                </div>
+                <div>
+                    <label class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                        Numero Documento
+                    </label>
+                    <div class="bg-white border-2 px-2 border-gray-300 rounded-md shadow-sm w-full h-8">
+                        10304392073
+                    </div>
+                </div>
+                <div>
+                    <label class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                        Fecha Nacimiento
+                    </label>
+                    <div class="bg-white border-2 px-2 border-gray-300 rounded-md shadow-sm w-full h-8">
+                        14/08/2004
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

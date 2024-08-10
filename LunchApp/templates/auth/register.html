@@ -1,0 +1,85 @@
+{% extends 'layouts/app.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="mmx-auto h-[90vh] flex flex-col items-center p-2 sm:p-10 lg:p-0">
+        <div class="grid lg:grid-cols-1 justify-center m-auto rounded-lg overflow-hidden shadow-2xl lg:w-4/6 bg-white">
+            <div>
+                <form method="POST" action="/register/" class="p-1 md:p-10 lg:p-16 h-full flex flex-col justify-between" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div>
+                        <a href="/" class="b">
+                            <img src="{% static 'img/logo.jpeg' %}" alt="logo" class="w-28 mx-auto">
+                        </a>
+                    </div>
+                    <div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="mt-4">
+                                <label for="document" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Documento
+                                </label>
+                                <input type="number" name="document" id="document" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="firstName" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Nombres
+                                </label>
+                                <input type="text" name="firstName" id="firstName" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="lastName" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Apellidos
+                                </label>
+                                <input type="text" name="lastName" id="lastName" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="mt-4">
+                                <label for="email" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Correo
+                                </label>
+                                <input type="email" name="email" id="email" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="userName" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Usuario
+                                </label>
+                                <input type="text" name="userName" id="userName" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="userPassword" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Contraseña
+                                </label>
+                                <input type="password" name="userPassword" id="userPassword" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <div class="mt-4">
+                                <label for="userPhoto" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                    Foto
+                                </label>
+                                <input type="file" accept="image/*" name="userPhoto" id="userPhoto" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                            </div>
+                            <input type="text" name="userRol" value="1" hidden>
+                        </div>
+                        
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{% url 'login' %}">
+                            ¿Ya registrado?
+                        </a>
+
+                        <button class ="ml-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-teal-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            Registrarme
+                        </button>                        
+                    </div>
+                    {% if messages %}
+                        {% for mensaje in messages %}
+                            <h1 style="color: red;"> {{ mensaje }} </h1>
+                        {% endfor %}
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

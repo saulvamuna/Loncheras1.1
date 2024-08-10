@@ -1,0 +1,44 @@
+{% extends 'layouts/app.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="mx-auto h-[90vh] flex flex-col items-center p-2 sm:p-10 lg:p-0">
+        <div class="grid lg:grid-cols-2 justify-center m-auto rounded-lg overflow-hidden shadow-2xl lg:w-4/6 bg-white">
+            <div class="w-full h-full">
+                <img src="{% static 'img/imageLogin.jpg' %}" alt="logo" class="w-full h-full object-cover">
+            </div>
+            
+            <div>
+                <form method="POST" action="/login/" class="p-1 md:p-10 lg:p-16 h-full flex flex-col justify-between">
+                    {% csrf_token %}
+                    <div>
+                        <a href="/" class="">
+                            <img src="{% static 'img/logo.jpeg' %}" alt="logo" class="w-28 mx-auto">
+                        </a>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="userName" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                Usuario
+                            </label>
+                            <input type="text" name="userName" id="userName" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                        </div>
+                        <div>
+                            <label for="userPassword" class="ml-1 block font-semibold text-sm text-left pr-4 text-gray-700 mt-4">
+                                Contraseña
+                            </label>
+                            <input type="password" name="userPassword" id="userPassword" class="bg-gray-200 focus:bg-gray-50 border-2 border-gray-300 focus:border-slate-700 focus:ring-0 rounded-md shadow-sm w-full h-8">
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end mt-4">
+                        <button type="submit" class ="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-teal-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            Iniciar sesión
+                        </button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
